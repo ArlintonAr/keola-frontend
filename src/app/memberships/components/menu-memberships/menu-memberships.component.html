@@ -1,5 +1,7 @@
-<div class="content-routs p-4 flex justify-center gap-10">
+<div class="content-routs p-4 flex justify-center gap-10 ">
   @for (item of menuSuscription; track $index) {
-    <a href=""><span>{{item.title}}</span></a>
+    <a class=""
+    [routerLink]="item.path"
+    routerLinkActive="border-b border-secondary"  href=""><span class="font-bold">{{item.title}}</span></a>
   }
  </div>

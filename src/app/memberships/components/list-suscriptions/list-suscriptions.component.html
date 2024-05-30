@@ -1,0 +1,31 @@
+<div class="container min-w-full text-black mt-8">
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white ">
+      <thead class="border-b">
+        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+          <th class="py-3 px-6 text-left">idUser</th>
+          <th class="py-3 px-6 text-left">Estado</th>
+          <th class="py-3 px-6 text-center">Beneficiarios</th>
+          <th class="py-3 px-6 text-center">Creacion</th>
+          <th class="py-3 px-6 text-center">Paquete</th>
+        </tr>
+      </thead>
+
+      <tbody class="text-gray-600 text-sm font-light">
+      @for (suscription of suscriptionsUser; track $index) {
+        <tr class="border-b border-gray-200 hover:bg-gray-100">
+          <td class="py-3 px-6 text-left whitespace-nowrap">{{suscription.idUser}}</td>
+          <td class="py-3 px-6 text-left">{{suscription.status}}</td>
+          <td class="py-3 px-6 text-center">{{suscription.beneficiaries}}</td>
+          <td class="py-3 px-6 text-center">{{suscription.creationDate | date:'MMM d, y'}}</td>
+          <td class="py-3 px-6 text-center">
+            <button class="bg-red-500 text-black px-3 py-1 rounded">{{suscription.package.name}}</button>
+          </td>
+        </tr>
+      }
+
+
+      </tbody>
+    </table>
+  </div>
+</div>

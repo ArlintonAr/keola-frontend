@@ -1,10 +1,13 @@
 import { Routes } from '@angular/router';
+import { privateGuardGuard } from './auth/guards/private-guard.guard';
+import { publicGuardGuard } from './auth/guards/public-guard.guard';
 
 
 export const routes: Routes = [
 
   {
     path: 'auth',
+    canActivate:[publicGuardGuard] ,
     loadComponent: () => import('./auth/auth.component'),
     children: [
      {
@@ -22,19 +25,25 @@ export const routes: Routes = [
     ]
   },
   {
-    path:'memberships',
+    path:'suscriptions',
+    canActivate:[privateGuardGuard],
     loadComponent:()=>import('./memberships/memberships.component'),
     children:[
       {
         path:'memberships',
         title:'Suscripciones',
-        loadChildren:()=>import('./memberships/pages/memberships/memberships.component')
+        loadComponent:()=>import('./memberships/pages/memberships/memberships.component')
       },
       {
-        path:'packages',
-        title:'Paquetes',
-        loadChildren:()=>import('./memberships/pages/packages/packages.component')
-      }
+        path:'schedule',
+        title:'Cronograma',
+        loadComponent:()=>import('./memberships/pages/Schedules/schedule.component')
+      },
+      {
+        path:'pay-validate',
+        title:'Validar Pagos',
+        loadComponent:()=>import('./memberships/pages/pay-validate/pay-validate.component')
+      },
     ]
   },
   {

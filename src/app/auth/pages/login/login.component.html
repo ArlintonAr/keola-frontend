@@ -8,19 +8,28 @@
   <section class=" h-screen sm:w-screen  flex flex-col gap-5 justify-center items-center ">
     <div class="content-login text-center  p-2 w-80">
       <h1 class="font-bold ">!Bienvenidos!</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Dolore quidem iusto iure maxime nisi fuga</p>
+      <p>Esta es una aplicación web diseñada para gestionar y
+        visualizar el cronograma de pagos de suscripciones</p>
 
     </div>
-    <form action="" class="content-login  p-2 flex flex-col items-center gap-2 ">
+    <form action=""
+      [formGroup]="authForm"
+      (ngSubmit)="login()"
+    class="content-login  p-2 flex flex-col items-center gap-2 ">
       <div class="content-error text-errors">
-      <!--   @if(errorLogin){
-          <span>{{errorLogin}}</span>
-        } -->
+       @if(errorLogin){
+          <span class="text-errors">{{errorLogin}}</span>
+        }
       </div>
-      <input type="text" placeholder="Usuario" class="w-80 p-2 border rounded-2xl focus:outline-none">
-      <input type="password" placeholder="Contraseña" class="w-80 p-2 border rounded-2xl focus:outline-none">
-      <button class="w-80 p-2  rounded-2xl bg-secondary font-bold text-white">Acceder</button>
+      <input
+      formControlName="username"
+      type="text"
+      placeholder="Usuario" class="w-80 p-2 border rounded-2xl focus:outline-none">
+      <input
+      formControlName="password"
+      type="password"
+      placeholder="Contraseña" class="w-80 p-2 border rounded-2xl focus:outline-none">
+      <button (click)="login()"  class="w-80 p-2  rounded-2xl bg-secondary font-bold text-white">Acceder</button>
     </form>
   </section>
 

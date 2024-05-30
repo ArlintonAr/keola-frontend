@@ -4,33 +4,20 @@ import { MembershipsService } from '../../services/memberships.service';
 import { Observable } from 'rxjs';
 import { ObjModel, ResponseMemberships } from '../../interfaces/response-memberships';
 import { CommonModule } from '@angular/common';
+import { ListSuscriptionsComponent } from '../../components/list-suscriptions/list-suscriptions.component';
 
 @Component({
   selector: 'app-memberships',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    ListSuscriptionsComponent,
+  ],
   templateUrl: './memberships.component.html',
   styles: ``
 })
-export default class MembershipsComponent implements OnInit {
+export default class MembershipsComponent{
 
 
-  public memberships!:ResponseMemberships
-  private membershipsService = inject(MembershipsService)
-
-  ngOnInit(): void {
-    console.log("Hola")
-    this.getSuscriptions()
-  }
-
-
-  getSuscriptions() {
-    this.membershipsService.getSuscriptionsForId()
-    .subscribe({
-      next: (res) => console.log(res),
-      error: (err) => console.log(err),
-      complete: () => {},
-    })
-  }
 
 }

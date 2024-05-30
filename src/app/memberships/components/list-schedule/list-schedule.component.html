@@ -1,0 +1,37 @@
+<div class="container min-w-full text-black mt-8">
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white ">
+      <thead class="border-b">
+        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+          <th class="py-3 px-6 text-left">idSuscripcion</th>
+          <th class="py-3 px-6 text-left">Descripcion de cuota</th>
+          <th class="py-3 px-6 text-center">Pago total</th>
+          <th class="py-3 px-6 text-center">Amortización</th>
+          <th class="py-3 px-6 text-center">Fecha de Pago</th>
+          <th class="py-3 px-6 text-center">Vouchers de pago</th>
+        </tr>
+      </thead>
+
+      <tbody class="text-gray-600 text-sm font-light">
+      @for (schedule of objModel ; track $index) {
+        <tr class="border-b border-gray-200 hover:bg-gray-100">
+          <td class="py-3 px-6 text-left whitespace-nowrap">{{schedule.idSuscription}}</td>
+          <td class="py-3 px-6 text-left">{{schedule.quoteDescription}}</td>
+          <td class="py-3 px-6 text-center">{{schedule.totalPay}}</td>
+          <td class="py-3 px-6 text-center">{{schedule.amortization}}</td>
+          <td class="py-3 px-6 text-center">{{schedule.payDate |  date:'MMM d, y'}}</td>
+          <td class="py-3 px-6 text-center">
+            @for (vouchers of schedule.paymentVouchers; track $index) {
+              <button class="bg-red-500 text-black px-3 py-1 rounded cursor-pointer">Ver: {{vouchers.paymentId}}</button>
+
+            }
+          </td>
+        </tr>
+      }
+
+
+      </tbody>
+    </table>
+  </div>
+</div>
+

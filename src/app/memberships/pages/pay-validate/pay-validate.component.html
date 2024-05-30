@@ -1,0 +1,59 @@
+<form
+action=""
+[formGroup]="formValidatePay"
+>
+  <div class="w-full max-w-md mx-auto bg-white rounded shadow-xl p-2 mt-2 space-y-4">
+    <h1 class="text-2xl font-bold text-gray-800 text-center">Detalles de suscripcion</h1>
+
+  <!--   @if(){
+      <span></span>
+    }@else {
+
+    } -->
+
+    <div class="">
+        <label  class="block text-bold font-semibold">Id suscripcion</label>
+        <input type="text"
+        formControlName="idSubscription"
+        class="mt-1 block w-full p-1 border border-gray-300 rounded-xl focus:outline-none"
+        placeholder="Id suscripcion" >
+    </div>
+
+    <div class=" ">
+        <label  class="block text-bold font-semibold">Pago a Validar</label>
+        <input type="text"
+        formControlName="idPay"
+        class="mt-1 block w-full p-1 border border-gray-300 rounded-xl focus:outline-none"
+        placeholder="Id de pago" >
+    </div>
+
+    <div class=" ">
+        <label  class="block text-bold font-semibold">Estado de aceptacion</label>
+        <select
+        formControlName="IsAcceptedPayment"
+        class=" block w-full p-1 border border-gray-300 rounded-xl focus:outline-none ">
+            <option value="1" selected>Aceptar</option>
+            <option value="0">Rechazar</option>
+        </select>
+    </div>
+
+    <div class=" ">
+        <label  class="block text-bold font-semibold">Motivo</label>
+        <input type="text"
+        formControlName="id"
+        class="mt-1 block w-full p-1 border border-gray-300 rounded-xl focus:outline-none"
+        placeholder="Id" >
+        <input type="text"
+        formControlName="detail"
+        class="mt-1 block w-full p-1 border border-gray-300 rounded-xl focus:outline-none"
+        placeholder="Ingrese Detalle " >
+    </div>
+
+
+    <div class="p-1">
+       <button (click)="validatePays()"
+       class="px-2 py-2 w-full bg-blue-500 text-black text-white font-bold rounded-xl bg-secondary hover:bg-primary">Validar</button>
+    </div>
+  </div>
+
+</form>
